@@ -1,0 +1,20 @@
+{% extends 'myApp_1/base.html' %}
+{% block body_block %}
+<h1>Musician Details : </h1>
+<h3>{{musician.first_name}} {{musician.last_name}}</h3>
+<h4>Instrument : {{musician.instrument}}</h4>
+<a href="{% url 'myApp_1:musician_update' pk=musician.pk %}" class="btn btn-warning" >Update</a>
+&nbsp &nbsp
+<a href="{% url 'myApp_1:delete_musician' pk=musician.pk %}" class="btn btn-warning" >Delete</a>
+<hr>
+<h2>Album: </h2>
+<ul>
+  {% for album in musician.album_list.all %}
+  <li>{{album.name}}</li>
+    {% endfor %}
+</ul>
+
+
+
+
+{% endblock %}
